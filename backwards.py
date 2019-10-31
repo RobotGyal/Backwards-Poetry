@@ -9,6 +9,14 @@ Laying in the sand
 Staring past the sea
 Me"""
 
+class colors:
+    purple = '\033[35m'
+    green = '\033[32m'
+    yellow = '\033[93m'
+    grey = '\033[37m'
+    red='\033[31m'
+    cyan='\033[46m'
+
 poem_words=[]
 
 def lines_printed_forward(poem):
@@ -30,10 +38,10 @@ def words_printed_backward(poem):
         poem_reverse_words += poem_words[word]
     return poem_reverse_words
 
-print(poem)
-print("\nWords Printed Forward\n")
-print(words_printed_forward(poem))
-print("\nLines Printed Foward\n")
-print(lines_printed_forward(poem))
-print("\nWords Printed In Reverse\n")
-print(words_printed_backward(poem))
+print("\n" + poem)
+print(colors.green, "\nWords Printed Forward\n")
+print(colors.yellow, words_printed_forward(poem))
+print(colors.green, "\nLines Printed Foward\n")
+print(colors.yellow, lines_printed_forward(poem))
+print(colors.green, "\nWords Printed In Reverse\n")
+print(colors.yellow, words_printed_backward(poem))
