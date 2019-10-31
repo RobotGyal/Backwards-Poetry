@@ -23,20 +23,16 @@ def lines_printed_forward(poem):
     poem_lines = poem.split('\n')
     return poem_lines
 
-def lines_printed_backwards():
-    pass
+def lines_printed_backward(poem):
+    return poem[::-1]
 
 def words_printed_forward(poem):
     poem_words = poem.split()
     return poem_words
 
 def words_printed_backward(poem):
-    poem_words = poem.split()
-    poem_word_length = len(poem_words)
-    poem_reverse_words =[]
-    for word in range(poem_word_length-1, -1, -1):
-        poem_reverse_words += poem_words[word]
-    return poem_reverse_words
+    pass
+
 
 print("\n" + poem)
 print(colors.green, "\nWords Printed Forward\n")
@@ -44,4 +40,4 @@ print(colors.yellow, words_printed_forward(poem))
 print(colors.green, "\nLines Printed Foward\n")
 print(colors.yellow, lines_printed_forward(poem))
 print(colors.green, "\nWords Printed In Reverse\n")
-print(colors.yellow, words_printed_backward(poem))
+print(colors.yellow, lines_printed_backward(poem))
