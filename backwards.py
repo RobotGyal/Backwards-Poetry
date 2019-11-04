@@ -21,25 +21,52 @@ poem_words=[]
 
 def lines_printed_forward(poem):
     poem_lines = poem.split('\n')
-    return poem_lines
+    for lines in poem_lines:
+        print(colors.yellow,lines)
 
-def lines_printed_backward(poem):
-    return poem[::-1]
+# def lines_printed_backward(poem):
+#     for lines in poem:
+#         print(colors.yellow, lines[::-1])
 
 def words_printed_forward(poem):
     poem_words = poem.split()
-    return poem_words
-
+    for word in poem_words:
+        print(colors.yellow,word)
+    return 
 def words_printed_backward(poem):
     poem_words = poem.split()
+    for words in poem_words:
+        print(colors.yellow,words[::-1])
+
+def lines_printed_backward(poem):
+    poem_words = poem.split('\n')
+    for words in poem_words:
+        print (colors.yellow,words[::-1])
+
+def lines_printed_in_reverse(poem):
+    poem_words = poem.split('\n')
     return poem_words[::-1]
 
-print("\n" + poem)
+
+
+
+
+print(colors.red, "\n" + poem)
+
 print(colors.green, "\nWords Printed Forward\n")
-print(colors.yellow, words_printed_forward(poem))
-print(colors.green, "\nLines Printed Foward\n")
-print(colors.yellow, lines_printed_forward(poem))
-print(colors.green, "\nLines Printed Backward\n")
-print(colors.yellow, lines_printed_backward(poem))
-print(colors.green, "\nWords Printed In Reverse\n")
-print(colors.yellow, words_printed_backward(poem))
+print( words_printed_forward(poem))
+
+# print(colors.green, "\nLines Printed Foward\n")
+# print(lines_printed_forward(poem))
+
+# print(colors.green, "\nLines Printed Backward\n")
+# print(lines_printed_backward(poem))
+
+print(colors.green, "\nWords Printed Backward\n")
+print(words_printed_backward(poem))
+
+print(colors.green, "\nLines Printed In Reverse and Backward\n")
+print(lines_printed_backward(poem))
+
+print(colors.green, "\nLines Printed In Reverse\n")
+print(lines_printed_in_reverse(poem))
