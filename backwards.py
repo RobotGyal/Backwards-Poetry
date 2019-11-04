@@ -31,13 +31,15 @@ def words_printed_forward(poem):
     return poem_words
 
 def words_printed_backward(poem):
-    pass
-
+    poem_words = poem.split()
+    return poem_words[::-1]
 
 print("\n" + poem)
 print(colors.green, "\nWords Printed Forward\n")
 print(colors.yellow, words_printed_forward(poem))
 print(colors.green, "\nLines Printed Foward\n")
 print(colors.yellow, lines_printed_forward(poem))
-print(colors.green, "\nWords Printed In Reverse\n")
+print(colors.green, "\nLines Printed Backward\n")
 print(colors.yellow, lines_printed_backward(poem))
+print(colors.green, "\nWords Printed In Reverse\n")
+print(colors.yellow, words_printed_backward(poem))
