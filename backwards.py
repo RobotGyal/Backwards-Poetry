@@ -1,3 +1,5 @@
+import random
+
 poem = """White against blue
 Or is it blue against white
 Seen surely in the day
@@ -45,7 +47,19 @@ def lines_printed_backward(poem):
 
 def lines_printed_in_reverse(poem):
     poem_words = poem.split('\n')
-    return poem_words[::-1]
+    print(colors.yellow, poem_words[::-1])
+
+def lines_printed_randomly(poem):
+    lines2=[]
+    poem_lines = poem.split('\n') 
+    for lines in poem_lines:
+        lines2.append(lines)
+
+    random.shuffle(lines2)
+    amount_of_lines2 = len(lines2)
+
+    for i in range(0, amount_of_lines2): 
+        print (colors.yellow, lines2[i], end=" ")
 
 
 
@@ -70,3 +84,6 @@ print(lines_printed_backward(poem))
 
 print(colors.green, "\nLines Printed In Reverse\n")
 print(lines_printed_in_reverse(poem))
+
+print(colors.green, "\nLines Printed Randomly\n")
+print(lines_printed_randomly(poem))
