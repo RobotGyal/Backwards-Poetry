@@ -17,11 +17,8 @@ poem_file = open("poem.txt", "r")
 
 class colors:
     purple = '\033[35m'
-    green = '\033[32m'
-    yellow = '\033[93m'
     grey = '\033[37m'
     red='\033[31m'
-    cyan='\033[46m'
 
 funtion_choice = None
 
@@ -31,10 +28,6 @@ def lines_printed_forward(poem): #print lines forward  -  lf
     poem_lines = poem.split('\n')
     for lines in poem_lines:
         print(colors.grey,lines)
-
-# def lines_printed_backward(poem):
-#     for lines in poem:
-#         print(colors.yellow, lines[::-1])
 
 def words_printed_forward(poem):  #print words forward  -  wf
     poem_words = poem.split()
@@ -56,16 +49,16 @@ def lines_printed_in_reverse(poem):     # print lines reverse  -  lrv
     print(colors.grey, poem_words[::-1])
 
 def lines_printed_randomly(poem):    # print lines randomly  -  lrd
-    lines2=[]
+    random_lines=[]
     poem_lines = poem.split('\n') 
     for lines in poem_lines:
-        lines2.append(lines)
+        random_lines.append(lines)
 
-    random.shuffle(lines2)
-    amount_of_lines2 = len(lines2)
+    random.shuffle(random_lines)
+    amount_of_random_lines = len(random_lines)
 
-    for i in range(0, amount_of_lines2): 
-        print (colors.grey, lines2[i], end=" ")
+    for i in range(0, amount_of_random_lines): 
+        print (colors.grey, random_lines[i], end=" ")
 
 def choices(poem_type):
     while True:
@@ -95,7 +88,7 @@ def choices(poem_type):
 
 
 
-# Test Functions
+# Testing 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # print(colors.red, "\n" + poem)
 
@@ -113,8 +106,6 @@ def choices(poem_type):
 
 # print(colors.green, "\nLines Printed Randomly\n")
 # print(lines_printed_randomly(poem))
-
-
 
 # print(colors.green, "\nLines Printed Foward\n")
 # print(lines_printed_forward(poem))
