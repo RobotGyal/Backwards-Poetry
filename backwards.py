@@ -23,37 +23,39 @@ class colors:
     red='\033[31m'
     cyan='\033[46m'
 
+funtion_choice = None
+
 poem_words=[]
 
-def lines_printed_forward(poem):
+def lines_printed_forward(poem): #print lines forward  -  lf
     poem_lines = poem.split('\n')
     for lines in poem_lines:
-        print(colors.yellow,lines)
+        print(colors.grey,lines)
 
 # def lines_printed_backward(poem):
 #     for lines in poem:
 #         print(colors.yellow, lines[::-1])
 
-def words_printed_forward(poem):
+def words_printed_forward(poem):  #print words forward  -  wf
     poem_words = poem.split()
     for word in poem_words:
-        print(colors.yellow,word)
-    return 
-def words_printed_backward(poem):
+        print(colors.grey,word)
+
+def words_printed_backward(poem):  # print words backward   -  wb
     poem_words = poem.split()
     for words in poem_words:
-        print(colors.yellow,words[::-1])
+        print(colors.grey,words[::-1])
 
-def lines_printed_backward(poem):
+def lines_printed_backward(poem):   # print lines backward  -  lb
     poem_words = poem.split('\n')
     for words in poem_words:
-        print (colors.yellow,words[::-1])
+        print (colors.grey,words[::-1])
 
-def lines_printed_in_reverse(poem):
+def lines_printed_in_reverse(poem):     # print lines reverse  -  lrv
     poem_words = poem.split('\n')
-    print(colors.yellow, poem_words[::-1])
+    print(colors.grey, poem_words[::-1])
 
-def lines_printed_randomly(poem):
+def lines_printed_randomly(poem):    # print lines randomly  -  lrd
     lines2=[]
     poem_lines = poem.split('\n') 
     for lines in poem_lines:
@@ -63,9 +65,30 @@ def lines_printed_randomly(poem):
     amount_of_lines2 = len(lines2)
 
     for i in range(0, amount_of_lines2): 
-        print (colors.yellow, lines2[i], end=" ")
+        print (colors.grey, lines2[i], end=" ")
 
-
+def choices(poem_type):
+    while True:
+        print(colors.red, "\nWhat functionality would you like to see?\n")
+        function_choice = input("\nWords printed forward (wf),\nWords printed Backward (wb),\nLines printed Forward (lf),\nLines printed Forward (lb),\nLines printed Reverse (lrv),\nLines printed Backward (lrd),\nQuit (q)\n")
+        function_choice.lower()
+        print('\n\n')
+        if function_choice == 'wf':
+            print(words_printed_forward(poem_type))
+        elif function_choice == 'wb':
+            print(words_printed_backward(poem_type))
+        elif function_choice == 'lf':
+            print(colors.grey, poem_type)
+        elif function_choice == 'lb':
+            print(lines_printed_backward(poem_type))
+        elif function_choice == 'lrv':
+            print(lines_printed_in_reverse(poem_type))
+        elif function_choice == 'lrd':
+            print(lines_printed_randomly(poem_type))
+        elif function_choice == 'quit':
+            return False
+        else:
+            return True
 
 
 
@@ -88,6 +111,8 @@ def lines_printed_randomly(poem):
 # print(colors.green, "\nLines Printed Randomly\n")
 # print(lines_printed_randomly(poem))
 
+
+
 # print(colors.green, "\nLines Printed Foward\n")
 # print(lines_printed_forward(poem))
 
@@ -95,19 +120,22 @@ def lines_printed_randomly(poem):
 # print(lines_printed_backward(poem))
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~``
 
-print("Welcome to Backwards Poetry")
-print("Before we continue, would you like to use the default poem, read from the file, or input your own?")
+print(colors.purple, "\nWelcome to Backwards Poetry\n")
+print("Before we continue, would you like to use the default poem, read from the file, or input your own?\n")
 user_input = input("Choose default(d), file(f), or input(i): \n ")
 user_input.lower()
 
 if user_input == 'd':
-    print(poem)
+    choices(poem)
+    # print(poem)
 elif user_input == 'f':
-    print(poem_file.read())
+    choices(poem_file.read())
+    # print(poem_file.read())
 elif user_input == 'i':
     print("\n\nEnter your poem. Press enter to add new lines. Press Control+D (Ctrl+D) to end input: \n")
     user_poem = sys.stdin.readlines()
-    print(user_poem)
+    choices(user_poem)
+    # print(user_poem)
 else:
     print("Invalid entry")
 
