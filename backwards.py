@@ -1,4 +1,5 @@
 import random
+import sys
 
 poem = """White against blue
 Or is it blue against white
@@ -10,6 +11,9 @@ Struggling to be free
 Laying in the sand
 Staring past the sea
 Me"""
+
+
+poem_file = open("poem.txt", "r")
 
 class colors:
     purple = '\033[35m'
@@ -65,25 +69,50 @@ def lines_printed_randomly(poem):
 
 
 
-print(colors.red, "\n" + poem)
+# Test Functions
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# print(colors.red, "\n" + poem)
 
-print(colors.green, "\nWords Printed Forward\n")
-print( words_printed_forward(poem))
+# print(colors.green, "\nWords Printed Forward\n")
+# print( words_printed_forward(poem))
+
+# print(colors.green, "\nWords Printed Backward\n")
+# print(words_printed_backward(poem))
+
+# print(colors.green, "\nLines Printed In Reverse and Backward\n")
+# print(lines_printed_backward(poem))
+
+# print(colors.green, "\nLines Printed In Reverse\n")
+# print(lines_printed_in_reverse(poem))
+
+# print(colors.green, "\nLines Printed Randomly\n")
+# print(lines_printed_randomly(poem))
 
 # print(colors.green, "\nLines Printed Foward\n")
 # print(lines_printed_forward(poem))
 
 # print(colors.green, "\nLines Printed Backward\n")
 # print(lines_printed_backward(poem))
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~``
 
-print(colors.green, "\nWords Printed Backward\n")
-print(words_printed_backward(poem))
+print("Welcome to Backwards Poetry")
+print("Before we continue, would you like to use the default poem, read from the file, or input your own?")
+user_input = input("Choose default(d), file(f), or input(i): \n ")
+user_input.lower()
 
-print(colors.green, "\nLines Printed In Reverse and Backward\n")
-print(lines_printed_backward(poem))
+if user_input == 'd':
+    print(poem)
+elif user_input == 'f':
+    print(poem_file.read())
+elif user_input == 'i':
+    print("\n\nEnter your poem. Press enter to add new lines. Press Control+D (Ctrl+D) to end input: \n")
+    user_poem = sys.stdin.readlines()
+    print(user_poem)
+else:
+    print("Invalid entry")
 
-print(colors.green, "\nLines Printed In Reverse\n")
-print(lines_printed_in_reverse(poem))
 
-print(colors.green, "\nLines Printed Randomly\n")
-print(lines_printed_randomly(poem))
+
+
+
+poem_file.close()
