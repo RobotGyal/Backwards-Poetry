@@ -60,10 +60,16 @@ def lines_printed_randomly(poem):    # print lines randomly  -  lrd
     for i in range(0, amount_of_random_lines): 
         print (colors.grey, random_lines[i], end=" ")
 
+# Custom Function
+def lines_fenced(poem, wrapper='*~*'):
+    poem_lines = poem.split('\n') 
+    for lines in poem_lines:
+        print(colors.grey, wrapper, lines, wrapper)
+
 def choices(poem_type):
     while True:
-        print(colors.red, "\nWhat functionality would you like to see?\n")
-        function_choice = input("\nWords printed forward (wf),\nWords printed Backward (wb),\nLines printed Forward (lf),\nLines printed Forward (lb),\nLines printed Reverse (lrv),\nLines printed Backward (lrd),\nAnother Poem Input Type (ap),\nQuit (q)\n")
+        print(colors.red, "\n\nWhat functionality would you like to see?\n")
+        function_choice = input("\nWords printed forward (wf),\nWords printed Backward (wb),\nLines printed Forward (lf),\nLines printed Forward (lb),\nLines printed Reverse (lrv),\nLines printed Backward (lrd),\nLines Fenced/Custom (c), \nAnother Poem Input Type (ap),\nQuit (q)\n")
         function_choice.lower()
         print('\n\n')
         if function_choice == 'wf':
@@ -78,6 +84,8 @@ def choices(poem_type):
             print(lines_printed_in_reverse(poem_type))
         elif function_choice == 'lrd':
             print(lines_printed_randomly(poem_type))
+        elif function_choice == 'c':
+            print(lines_fenced(poem_type))
         elif function_choice == 'ap':
             return False
         elif function_choice == 'q':
@@ -112,9 +120,18 @@ def choices(poem_type):
 
 # print(colors.green, "\nLines Printed Backward\n")
 # print(lines_printed_backward(poem))
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~``
 
-print(colors.purple, "\nWelcome to Backwards Poetry\n")
+
+# print(colors.grey, "\nLines Fenced\n")
+# print(lines_fenced(poem))
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+# Main Code
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# print(colors.purple, "\nWelcome to Backwards Poetry\n")
 print("Before we continue, would you like to use the default poem, read from the file, or input your own?\n")
 running = True
 while running:
@@ -129,7 +146,8 @@ while running:
         # print(poem_file.read())
     elif user_input == 'i':
         print("\n\nEnter your poem. Press enter to add new lines. Press Control+D (Ctrl+D) to end input: \n")
-        user_poem = sys.stdin.readlines()
+        user_poem = sys.stdin.read()
+        # user_poem = input()
         choices(user_poem)
         # print(user_poem)
     elif user_input == 'q':

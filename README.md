@@ -7,7 +7,7 @@ This project was created for the purpose of practicing with more with functions,
 * Python 3
 
 ## Installation
-* Clone repo to local device git clone https://github.com/RobotGyal/Space-Contractor
+* Clone repo to local device git clone https://github.com/RobotGyal/Backwards-Poetry.git
 * In command line run `python3 backwards.py'
 
 ## Code Example
