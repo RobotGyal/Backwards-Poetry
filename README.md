@@ -12,7 +12,14 @@ This project was created for the purpose of practicing with more with functions,
 
 ## Code Example
 ```
-def words_printed_backward(poem):
+def words_printed_backward(poem):  # print words backward   -  wb
+    """ 
+    Takes in a poem and prints it out backward word for word. 
+    Parameters: 
+    poem (string): Multiline string 
+    Prints: 
+    string: Each word in the input backwards
+    """
     poem_words = poem.split()
     for words in poem_words:
         print(colors.grey,words[::-1])
